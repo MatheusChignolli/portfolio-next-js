@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fira_Code } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Fira_Code({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script src="https://app.codly.com.br/codly.js?companyId=KjEmTBy2LA1zULXOWU1k&env=Development"></Script>
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
