@@ -3,19 +3,14 @@ import githubIcon from "../../public/github.svg";
 import linkedinIcon from "../../public/linkedin.svg";
 import mailIcon from "../../public/mail.svg";
 import clickIcon from "../../public/click.svg";
-import reactIcon from "../../public/technologies/react.svg";
-
-const EmptyBox = () => {
-  return <div className="bg-black" />;
-};
 
 export default function Home() {
   return (
     <main className="h-screen">
       <div className="grid grid-cols-6 gap-1 h-full">
         <div className="bg-white col-span-2 flex flex-col items-center justify-center">
-          <h2 className="text-3xl">Software Engineer</h2>
           <h1 className="text-4xl">Matheus Chignolli</h1>
+          <h2 className="text-3xl">Software Engineer</h2>
         </div>
         <div className="grid grid-cols-2 gap-1 h-full">
           <a
