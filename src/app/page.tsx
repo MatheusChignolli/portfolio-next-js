@@ -8,28 +8,28 @@ export default function Home() {
   return (
     <main className="h-screen">
       <div className="grid grid-cols-6 gap-1 h-full">
-        <div className="bg-white col-span-2 flex flex-col items-center justify-center">
-          <h1 className="text-4xl">Matheus Chignolli</h1>
-          <h2 className="text-3xl">Software Engineer</h2>
+        <div className="bg-white py-8 sm:py-0 col-span-6 sm:col-span-2 flex flex-col items-center justify-center">
+          <h1 className="text-3xl sm:text-4xl">Matheus Chignolli</h1>
+          <h2 className="text-2xl sm:text-3xl">Software Engineer</h2>
         </div>
-        <div className="grid grid-cols-2 gap-1 h-full">
+        <div className="grid grid-cols-3 sm:grid-cols-2 col-span-6 sm:col-span-1 gap-1 h-full">
           <a
             target="_blank"
             href="https://www.linkedin.com/in/matheus-chignolli-a0115b155/"
-            className="bg-white row-span-2 flex items-center justify-center"
+            className="bg-white py-4 sm:py-0 row-span-1 sm:row-span-2 flex items-center justify-center"
           >
             <Image width={50} priority src={linkedinIcon} alt="LinkedIn icon" />
           </a>
           <a
             href="https://github.com/MatheusChignolli"
             target="_blank"
-            className="bg-white flex items-center justify-center"
+            className="bg-white py-4 sm:py-0 flex items-center justify-center"
           >
             <Image width={50} priority src={githubIcon} alt="Github icon" />
           </a>
           <a
             href="mailto:matheuschignolli@gmail.com"
-            className="bg-white flex items-center justify-center"
+            className="bg-white py-4 sm:py-0 flex items-center justify-center"
           >
             <Image width={50} priority src={mailIcon} alt="Mail icon" />
           </a>
@@ -37,7 +37,7 @@ export default function Home() {
         <a
           href="https://www.linkedin.com/in/matheus-chignolli-a0115b155/details/certifications/"
           target="_blank"
-          className="bg-white flex flex-col items-center justify-center"
+          className="col-span-6 sm:col-span-1 py-4 sm:py-0 bg-white flex flex-col items-center justify-center"
         >
           <h3 className="text-2xl">Certifications</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
@@ -45,7 +45,7 @@ export default function Home() {
         <a
           href="https://medium.com/@matheuschignolli"
           target="_blank"
-          className="bg-white flex flex-col items-center justify-center"
+          className="col-span-3 sm:col-span-1 py-4 sm:py-0 bg-white flex flex-col items-center justify-center"
         >
           <h3 className="text-2xl">Articles</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
@@ -53,16 +53,18 @@ export default function Home() {
         <a
           href="https://www.linkedin.com/in/matheus-chignolli-a0115b155/recent-activity/all/"
           target="_blank"
-          className="bg-white flex flex-col items-center justify-center"
+          className="col-span-3 sm:col-span-1 py-4 sm:py-0 bg-white flex flex-col items-center justify-center"
         >
           <h3 className="text-2xl">Posts</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
         </a>
-        <div className="bg-white flex items-center justify-center">
-          <h3 className="text-2xl">About {"->"}</h3>
+        <div className="col-span-6 sm:col-span-1 py-8 sm:py-0 bg-white flex items-center justify-center">
+          <h3 className="text-2xl flex gap-2">
+            About <span className="hidden sm:block">{"->"}</span>
+          </h3>
         </div>
-        <div className="bg-white col-span-5 flex items-center justify-start px-12">
-          <p className="text-xl">
+        <div className="bg-white col-span-6 sm:col-span-5 flex items-center justify-start px-12 py-12 sm:py-0">
+          <p className="text-xl justify">
             As a seasoned software engineer, I thrive on diverse projects aimed
             at solving real-world problems for clients. My focus is on creating
             meaningful solutions that positively impact users, regardless of
@@ -77,15 +79,17 @@ export default function Home() {
         </div>
         <a
           href="/projects"
-          className="bg-white col-span-2 flex flex-col items-center justify-center"
+          className="bg-white col-span-6 sm:col-span-2 py-4 sm:py-0 flex flex-col items-center justify-center"
         >
           <h3 className="text-2xl">Projects</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
         </a>
-        <div className="bg-white col-span-2 flex items-center justify-center">
-          <h3 className="text-2xl">Technologies {"->"}</h3>
+        <div className="bg-white col-span-6 sm:col-span-2 py-8 sm:py-0 flex items-center justify-center">
+          <h3 className="text-2xl flex gap-2">
+            Technologies <span className="hidden sm:block">{"->"}</span>
+          </h3>
         </div>
-        <div className="bg-white col-span-2 flex items-center justify-around text-xl">
+        <div className="bg-white col-span-6 sm:col-span-2 py-8 sm:py-0 flex items-center justify-around text-xl">
           <ul className="list-disc">
             <li>Javascript</li>
             <li>Typescript</li>
@@ -94,7 +98,8 @@ export default function Home() {
             <li>Svelte</li>
             <li>Flutter</li>
             <li>Ruby on Rails</li>
-            <li>Unit/E2E tests</li>
+            <li>Unit tests</li>
+            <li>E2E tests</li>
           </ul>
           <ul className="list-disc">
             <li>GraphQl</li>
@@ -104,6 +109,7 @@ export default function Home() {
             <li>Postgres</li>
             <li>MySQL</li>
             <li>Git</li>
+            <li>GitHub</li>
             <li>CI/CD</li>
           </ul>
         </div>
