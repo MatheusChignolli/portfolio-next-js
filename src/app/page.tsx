@@ -4,6 +4,8 @@ import linkedinIcon from "../../public/linkedin.svg";
 import mailIcon from "../../public/mail.svg";
 import clickIcon from "../../public/click.svg";
 
+// TODO: Add every type of aria inside this html
+
 export default function Home() {
   return (
     <main className="h-screen">
@@ -64,7 +66,7 @@ export default function Home() {
           </h3>
         </div>
         <div className="bg-white col-span-6 sm:col-span-5 flex items-center justify-start px-12 py-12 sm:py-0">
-          <p className="text-xl justify">
+          <p className="text-xl text-justify">
             As a seasoned software engineer, I thrive on diverse projects aimed
             at solving real-world problems for clients. My focus is on creating
             meaningful solutions that positively impact users, regardless of
