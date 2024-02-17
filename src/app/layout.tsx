@@ -31,7 +31,21 @@ export const metadata: Metadata = {
     "software",
     "softwaredeveloper",
     "softwareengineer",
+    "chignolli",
   ],
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    alternateLocale: "pt_BR",
+    url: "https://chignolli.com",
+    siteName: "Matheus Chignolli",
+    countryName: "Brazil",
+    description: "Matheus Chignolli`s portfolio website",
+    determiner: "the",
+    emails: "matheuschignolli@gmail.com",
+    title: "Matheus Chignolli",
+  },
 };
 
 export default function RootLayout({
