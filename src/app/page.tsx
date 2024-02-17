@@ -80,7 +80,8 @@ export default function Home() {
           </p>
         </div>
         <a
-          href="/projects"
+          href="https://github.com/MatheusChignolli/projects"
+          target="_blank"
           className="bg-white col-span-6 sm:col-span-6 xl:col-span-2 py-4 xl:py-0 flex flex-col items-center justify-center"
         >
           <h3 className="text-2xl">Projects</h3>
