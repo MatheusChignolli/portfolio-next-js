@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
 const inter = Fira_Code({ subsets: ["latin"] });
 
@@ -43,15 +44,25 @@ export const metadata: Metadata = {
       },
     ],
   },
+  metadataBase: new URL("https://chignolli.com"),
 };
+
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "pt" }, { lang: "es" }];
+}
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Params;
 }>) {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );

@@ -1,18 +1,25 @@
 import Image from "next/image";
-import githubIcon from "../../public/github.svg";
-import linkedinIcon from "../../public/linkedin.svg";
-import mailIcon from "../../public/mail.svg";
-import clickIcon from "../../public/click.svg";
+import githubIcon from "../../../public/github.svg";
+import linkedinIcon from "../../../public/linkedin.svg";
+import mailIcon from "../../../public/mail.svg";
+import clickIcon from "../../../public/click.svg";
+import { getDictionary } from "./dictionaries";
 
 // TODO: Add every type of aria inside this html
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: { lang: "en" | "pt" | "es" };
+}) {
+  const dictionary = await getDictionary(params.lang);
+
   return (
     <main className="h-screen">
       <div className="grid grid-cols-6 gap-1 h-full">
         <div className="bg-white py-8 xl:py-0 col-span-6 sm:col-span-4 xl:col-span-2 flex flex-col items-center justify-center">
-          <h1 className="text-3xl xl:text-4xl">Matheus Chignolli</h1>
-          <h2 className="text-2xl xl:text-3xl">Software Engineer</h2>
+          <h1 className="text-3xl xl:text-4xl">{dictionary.name}</h1>
+          <h2 className="text-2xl xl:text-3xl">{dictionary.role}</h2>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-2 col-span-6 sm:col-span-2 xl:col-span-1 gap-1 h-full">
           <a
@@ -41,7 +48,7 @@ export default function Home() {
           target="_blank"
           className="col-span-6 sm:col-span-2 xl:col-span-1 py-4 xl:py-0 bg-white flex flex-col items-center justify-center"
         >
-          <h3 className="text-2xl">Certifications</h3>
+          <h3 className="text-2xl">{dictionary.certifications}</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
         </a>
         <a
@@ -49,7 +56,7 @@ export default function Home() {
           target="_blank"
           className="col-span-3 sm:col-span-2 xl:col-span-1 py-4 xl:py-0 bg-white flex flex-col items-center justify-center"
         >
-          <h3 className="text-2xl">Articles</h3>
+          <h3 className="text-2xl">{dictionary.articles}</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
         </a>
         <a
@@ -57,39 +64,29 @@ export default function Home() {
           target="_blank"
           className="col-span-3 sm:col-span-2 xl:col-span-1 py-4 xl:py-0 bg-white flex flex-col items-center justify-center"
         >
-          <h3 className="text-2xl">Posts</h3>
+          <h3 className="text-2xl">{dictionary.posts}</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
         </a>
         <div className="col-span-6 sm:col-span-2 xl:col-span-1 py-8 xl:py-0 bg-white flex items-center justify-center">
           <h3 className="text-2xl flex gap-2">
-            About <span className="hidden sm:block">{"->"}</span>
+            {dictionary.about} <span className="hidden sm:block">{"->"}</span>
           </h3>
         </div>
         <div className="bg-white col-span-6 sm:col-span-4 xl:col-span-5 flex items-center justify-start p-6 xl:p-12">
-          <p className="text-xl text-justify">
-            As a seasoned software engineer, I thrive on diverse projects aimed
-            at solving real-world problems for clients. My focus is on creating
-            meaningful solutions that positively impact users, regardless of
-            scale. I prioritize continuous learning to enhance problem-solving
-            abilities. My proactive approach and dedication to quality drive me
-            to stay updated on industry trends and engage in personal projects.
-            I prioritize collaboration and knowledge sharing in the workplace,
-            offering support to colleagues and aspiring to leave a lasting
-            impact by both learning from and mentoring others in software
-            development.
-          </p>
+          <p className="text-xl text-justify">{dictionary.aboutParagraph}</p>
         </div>
         <a
           href="https://github.com/MatheusChignolli/projects"
           target="_blank"
           className="bg-white col-span-6 sm:col-span-6 xl:col-span-2 py-4 xl:py-0 flex flex-col items-center justify-center"
         >
-          <h3 className="text-2xl">Projects</h3>
+          <h3 className="text-2xl">{dictionary.projects}</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
         </a>
         <div className="bg-white col-span-6 sm:col-span-2 py-8 sm:py-0 flex items-center justify-center">
           <h3 className="text-2xl flex gap-2">
-            Technologies <span className="hidden sm:block">{"->"}</span>
+            {dictionary.technologies}{" "}
+            <span className="hidden sm:block">{"->"}</span>
           </h3>
         </div>
         <div className="bg-white col-span-6 sm:col-span-4 xl:col-span-2 py-8 xl:py-0 flex items-center justify-around text-xl">
