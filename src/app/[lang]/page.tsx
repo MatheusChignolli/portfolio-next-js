@@ -86,12 +86,12 @@ export default async function Home({
           <h3 className="text-2xl">{dictionary.posts}</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
         </a>
-        <div className="col-span-6 sm:col-span-2 xl:col-span-1 py-8 xl:py-0 xl:min-h-96 bg-white flex items-center justify-center">
+        <div className="col-span-6 sm:col-span-2 xl:col-span-1 py-8 xl:py-0 xl:min-h-48 bg-white flex items-center justify-center">
           <h3 className="text-2xl flex gap-2">
             {dictionary.about} <span className="hidden sm:block">{"->"}</span>
           </h3>
         </div>
-        <div className="bg-white col-span-6 sm:col-span-4 xl:col-span-5 xl:min-h-96 flex items-center justify-start p-6 xl:p-12">
+        <div className="bg-white col-span-6 sm:col-span-4 xl:col-span-5 xl:min-h-48 flex items-center justify-start p-6 xl:p-12">
           <p className="text-xl text-justify">{dictionary.aboutParagraph}</p>
         </div>
         <a
