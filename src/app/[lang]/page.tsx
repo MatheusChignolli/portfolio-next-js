@@ -3,6 +3,7 @@ import githubIcon from "../../../public/github.svg";
 import linkedinIcon from "../../../public/linkedin.svg";
 import mailIcon from "../../../public/mail.svg";
 import clickIcon from "../../../public/click.svg";
+import translateIcon from "../../../public/translate.svg";
 import { getDictionary } from "./dictionaries";
 
 // TODO: Add every type of aria inside this html
@@ -14,20 +15,38 @@ export default async function Home({
 }) {
   const dictionary = await getDictionary(params.lang);
 
+  const nextLang = {
+    en: "pt",
+    pt: "en",
+    es: "en",
+  };
+
   return (
     <main className="h-screen">
       <div className="grid grid-cols-6 gap-1 h-full">
         <div className="bg-white py-8 xl:py-0 col-span-6 sm:col-span-4 xl:col-span-2 flex flex-col items-center justify-center">
           <h1 className="text-3xl xl:text-4xl">{dictionary.name}</h1>
           <h2 className="text-2xl xl:text-3xl">{dictionary.role}</h2>
+          <span className="text-p">({dictionary.language})</span>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-2 col-span-6 sm:col-span-2 xl:col-span-1 gap-1 h-full">
           <a
             target="_blank"
             href="https://www.linkedin.com/in/matheus-chignolli-a0115b155/"
-            className="bg-white py-4 sm:py-0 row-span-1 sm:row-span-2 flex items-center justify-center"
+            className="bg-white py-4 sm:py-0 row-span-1 col-span-3 sm:col-span-1 flex items-center justify-center"
           >
             <Image width={50} priority src={linkedinIcon} alt="LinkedIn icon" />
+          </a>
+          <a
+            href={`/${nextLang[params.lang || "es"]}`}
+            className="bg-white py-4 sm:py-0 row-span-1 flex items-center justify-center"
+          >
+            <Image
+              width={50}
+              priority
+              src={translateIcon}
+              alt="LinkedIn icon"
+            />
           </a>
           <a
             href="https://github.com/MatheusChignolli"
@@ -67,12 +86,12 @@ export default async function Home({
           <h3 className="text-2xl">{dictionary.posts}</h3>
           <Image width={50} priority src={clickIcon} alt="Click icon" />
         </a>
-        <div className="col-span-6 sm:col-span-2 xl:col-span-1 py-8 xl:py-0 bg-white flex items-center justify-center">
+        <div className="col-span-6 sm:col-span-2 xl:col-span-1 py-8 xl:py-0 xl:min-h-96 bg-white flex items-center justify-center">
           <h3 className="text-2xl flex gap-2">
             {dictionary.about} <span className="hidden sm:block">{"->"}</span>
           </h3>
         </div>
-        <div className="bg-white col-span-6 sm:col-span-4 xl:col-span-5 flex items-center justify-start p-6 xl:p-12">
+        <div className="bg-white col-span-6 sm:col-span-4 xl:col-span-5 xl:min-h-96 flex items-center justify-start p-6 xl:p-12">
           <p className="text-xl text-justify">{dictionary.aboutParagraph}</p>
         </div>
         <a

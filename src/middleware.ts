@@ -1,4 +1,4 @@
-let locales = ["pt", "en", "es"];
+let locales = ["pt", "en"];
 
 export function middleware(request: any) {
   const { pathname } = request.nextUrl;
