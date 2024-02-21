@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Fira_Code({ subsets: ["latin"] });
 
@@ -64,6 +65,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={inter.className}>{children}</body>
+      <GoogleAnalytics gaId="G-R9C2BFLVRB" />
     </html>
   );
 }
