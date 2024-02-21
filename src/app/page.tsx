@@ -1,23 +1,20 @@
 import Image from "next/image";
-import githubIcon from "../../../public/github.svg";
-import linkedinIcon from "../../../public/linkedin.svg";
-import mailIcon from "../../../public/mail.svg";
-import clickIcon from "../../../public/click.svg";
-import translateIcon from "../../../public/translate.svg";
-import { getDictionary } from "../../dictionaries/dictionaries";
+import githubIcon from "../../public/github.svg";
+import linkedinIcon from "../../public/linkedin.svg";
+import mailIcon from "../../public/mail.svg";
+import clickIcon from "../../public/click.svg";
+import translateIcon from "../../public/translate.svg";
+import { getDictionary } from "../dictionaries/dictionaries";
 
 // TODO: Add every type of aria inside this html
 
-export default async function Home({
-  params,
-}: {
-  params: { lang: "en" | "pt" | "es" };
-}) {
-  const dictionary = await getDictionary(params.lang);
+export default async function Home() {
+  const currentLang = "en";
+  const dictionary = await getDictionary(currentLang);
 
   const nextLang = {
     en: "pt",
-    pt: "",
+    pt: "en",
     es: "en",
   };
 
@@ -38,7 +35,7 @@ export default async function Home({
             <Image width={50} priority src={linkedinIcon} alt="LinkedIn icon" />
           </a>
           <a
-            href={`/${nextLang[params.lang || "es"]}`}
+            href={`/${nextLang[currentLang]}`}
             className="bg-white py-4 sm:py-0 row-span-1 flex items-center justify-center"
           >
             <Image

@@ -1,4 +1,4 @@
-let locales = ["pt", "en"];
+let locales = ["pt", ""];
 
 export function middleware(request: any) {
   const { pathname } = request.nextUrl;
@@ -8,7 +8,7 @@ export function middleware(request: any) {
 
   if (pathnameHasLocale) return;
 
-  request.nextUrl.pathname = "en";
+  request.nextUrl.pathname = "";
   return Response.redirect(request.nextUrl);
 }
 
