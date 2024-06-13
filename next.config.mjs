@@ -36,7 +36,8 @@ const nextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "script-src https: 'self', https://www.googletagmanager.co",
+            value:
+              "default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;",
           },
         ],
       },
