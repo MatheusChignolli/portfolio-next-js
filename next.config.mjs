@@ -34,6 +34,10 @@ const nextConfig = {
             key: "X-XSS-Protection",
             value: "1; mode=block",
           },
+          {
+            key: "Content-Security-Policy",
+            value: "script-src https: 'self', https://www.googletagmanager.co",
+          },
         ],
       },
     ];
