@@ -5,6 +5,8 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Fira_Code({ subsets: ["latin"] });
 
+const url = "https://chignolli.com"
+
 export const metadata = {
   title: "Matheus Chignolli - Software Engineer Portfolio",
   description:
@@ -30,7 +32,7 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     alternateLocale: "pt_BR",
-    url: "https://chignolli.com",
+    url: url,
     siteName: "Matheus Chignolli Portfolio",
     countryName: "Brazil",
     description:
@@ -40,20 +42,20 @@ export const metadata = {
     title: "Matheus Chignolli - Software Engineer Portfolio",
     images: [
       {
-        url: '/cover-h.jpg',
+        url: `${url}/cover-h.jpg`,
         width: 1200,
         height: 630,
         alt: 'Capa Matheus Chignolli'
       },
       {
-        url: '/cover-v.jpg',
+        url: `${url}/cover-v.jpg`,
         width: 960,
         height: 1280,
         alt: 'Capa Matheus Chignolli'
       },
     ]
   },
-  metadataBase: new URL("https://chignolli.com"),
+  metadataBase: new URL(url),
 };
 
 export async function generateStaticParams() {
