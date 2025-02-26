@@ -10,7 +10,7 @@ const url = "https://chignolli.com";
 export const metadata = {
   title: "Matheus Chignolli - Software Engineer Portfolio",
   description:
-    "Matheus Chignolli's portfolio showcasing software engineering projects and expertise.",
+    "Matheus Chignolli's portfolio highlights innovative software engineering projects, showcasing expertise in building scalable, high-quality solutions."",
   applicationName: "Matheus Chignolli Portfolio",
   creator: "Matheus Chignolli",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata = {
     siteName: "Matheus Chignolli Portfolio",
     countryName: "Brazil",
     description:
-      "Matheus Chignolli's portfolio website showcasing software engineering projects and expertise.",
+      "Matheus Chignolli's portfolio highlights innovative software engineering projects, showcasing expertise in building scalable, high-quality solutions.",
     determiner: "the",
     title: "Matheus Chignolli - Software Engineer Portfolio",
     images: [
@@ -81,7 +81,7 @@ export default function RootLayout({
         <meta property="og:description" content={metadata.openGraph.description} />
         <meta property="og:url" content={metadata.openGraph.url} />
         <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
+        <meta name="image" property="og:image" content={metadata.openGraph.images[0].url} />
         <meta property="og:image:width" content={metadata.openGraph.images[0].width.toString()} />
         <meta property="og:image:height" content={metadata.openGraph.images[0].height.toString()} />
         <meta property="og:image:alt" content={metadata.openGraph.images[0].alt} />
