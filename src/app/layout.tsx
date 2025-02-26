@@ -10,7 +10,7 @@ const url = "https://chignolli.com";
 export const metadata = {
   title: "Matheus Chignolli - Software Engineer Portfolio",
   description:
-    "Matheus Chignolli's portfolio highlights innovative software engineering projects, showcasing expertise in building scalable, high-quality solutions."",
+    "Matheus Chignolli's portfolio highlights innovative software engineering projects, showcasing expertise in building scalable, high-quality solutions.",
   applicationName: "Matheus Chignolli Portfolio",
   creator: "Matheus Chignolli",
   keywords: [
