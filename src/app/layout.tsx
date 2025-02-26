@@ -40,17 +40,17 @@ export const metadata = {
     title: "Matheus Chignolli - Software Engineer Portfolio",
     images: [
       {
+        url: '/cover-h.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Capa Matheus Chignolli'
+      },
+      {
         url: '/cover-v.jpg',
         width: 960,
         height: 1280,
         alt: 'Capa Matheus Chignolli'
       },
-      {
-        url: '/cover-h.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Capa Matheus Chignolli'
-      }
     ]
   },
   metadataBase: new URL("https://chignolli.com"),
