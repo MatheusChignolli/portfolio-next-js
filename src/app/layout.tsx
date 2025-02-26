@@ -40,9 +40,18 @@ export const metadata = {
     title: "Matheus Chignolli - Software Engineer Portfolio",
     images: [
       {
-        url: "https://media.licdn.com/dms/image/D5603AQFdUYVG2Z8p7Q/profile-displayphoto-shrink_800_800/0/1675702060704?e=1713398400&v=beta&t=tQij3it6jVusvH3FJQyUN_X_RC4__ou8yT8pVHtBRB4",
+        url: '/cover.jpg',
+        width: 960,
+        height: 1280,
+        alt: 'Capa do site MotoChefe Jundiaí'
       },
-    ],
+      {
+        url: '/cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Capa do site MotoChefe Jundiaí'
+      }
+    ]
   },
   metadataBase: new URL("https://chignolli.com"),
 };
