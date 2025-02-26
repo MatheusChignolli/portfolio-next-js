@@ -12,12 +12,6 @@ export const metadata = {
   description:
     "Matheus Chignolli's portfolio showcasing software engineering projects and expertise.",
   applicationName: "Matheus Chignolli Portfolio",
-  authors: [
-    {
-      name: "Matheus Chignolli",
-      url: "https://www.linkedin.com/in/matheus-chignolli-a0115b155/",
-    },
-  ],
   creator: "Matheus Chignolli",
   keywords: [
     "web development",
