@@ -2,8 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+:root, html.light {
+  --background: #f4f4f4; /* Cinza muito claro para o fundo */
+  --text-primary: #1a1a1a; /* Preto suave para o texto principal */
+  --text-secondary: #2b2b2b; /* Preto suave com mais contraste para o texto secundário */
+  --text-tertiary: #555555; /* Cinza mais escuro para o texto terciário */
+  --card: #e0e0e0; /* Cinza muito claro para os cartões, destacando do fundo */
+  --badge: #d0d0d0; /* Badge próximo ao tom do card, mas com um toque suave */
+}
+
+html.dark {
+  --background: #222222; /* Preto suave para o fundo */
+  --text-primary: #f4f4f4; /* Branco suave para o texto principal */
+  --text-secondary: #e0e0e0; /* Cinza claro mais contrastante para o texto secundário */
+  --text-tertiary: #a0a0a0; /* Cinza mais escuro e contrastante para o texto terciário */
+  --card: #383838; /* Cinza escuro para o cartão, com contraste com o fundo */
+  --badge: #4a4a4a; /* Badge com tom próximo ao do card, sem perder contraste */
+}
+
+
+
 body {
-  background: rgb(0, 0, 0);
+  background: var(--background);
+  color: var(--text-primary);
+  height: 100vh;
 }
 
 @layer utilities {

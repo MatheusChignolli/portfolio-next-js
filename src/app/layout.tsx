@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import Metadata from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
@@ -60,9 +60,21 @@ export default function RootLayout({
   params: Params;
 }>) {
   return (
-    <html lang={params.lang}>
+    <html lang={params.lang} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const storedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+              })();
+            `,
+          }}
+        />
       </head>
       <body className={inter.className}>{children}</body>
       <GoogleAnalytics gaId="G-R9C2BFLVRB" />
