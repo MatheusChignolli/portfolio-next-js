@@ -40,16 +40,16 @@ export const metadata = {
     title: "Matheus Chignolli - Software Engineer Portfolio",
     images: [
       {
-        url: '/cover.jpg',
+        url: '/cover-v.jpg',
         width: 960,
         height: 1280,
-        alt: 'Capa do site MotoChefe Jundiaí'
+        alt: 'Capa Matheus Chignolli'
       },
       {
-        url: '/cover.jpg',
+        url: '/cover-h.jpg',
         width: 1200,
         height: 630,
-        alt: 'Capa do site MotoChefe Jundiaí'
+        alt: 'Capa Matheus Chignolli'
       }
     ]
   },
