@@ -1,4 +1,3 @@
-import Metadata from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
@@ -6,7 +5,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Fira_Code({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Matheus Chignolli - Software Engineer Portfolio",
   description:
     "Matheus Chignolli's portfolio showcasing software engineering projects and expertise.",
