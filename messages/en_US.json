@@ -1,0 +1,85 @@
+{
+  "header": {
+    "title": "Matheus Chignolli",
+    "socialLinks": {
+      "linkedIn": {
+        "href": "https://www.linkedin.com/in/matheus-chignolli-a0115b155/",
+        "label": "LinkedIn"
+      },
+      "github": {
+        "href": "https://github.com/MatheusChignolli",
+        "label": "GitHub"
+      },
+      "email": {
+        "href": "mailto:matheuschignolli@gmail.com",
+        "label": "Email"
+      }
+    },
+    "locales": {
+      "portuguese": {
+        "label": "🇧🇷 Portuguese"
+      },
+      "english": {
+        "label": "🇺🇸 English"
+      }
+    }
+  },
+  "main": {
+    "name": "Matheus Chignolli",
+    "role": "Software Engineer",
+    "links": {
+      "projects": {
+        "href": "https://github.com/MatheusChignolli/projects",
+        "label": "Projects"
+      },
+      "certifications": {
+        "href": "https://www.linkedin.com/in/matheus-chignolli-a0115b155/details/certifications/",
+        "label": "Certifications"
+      },
+      "articles": {
+        "href": "https://medium.com/@matheuschignolli",
+        "label": "Articles"
+      },
+      "posts": {
+        "href": "https://www.linkedin.com/in/matheus-chignolli-a0115b155/recent-activity/all/",
+        "label": "Posts"
+      }
+    },
+    "about": {
+      "title": "About",
+      "content": "Over 6 years of experience in software development and holds a degree in IT from Fatec. Impacted projects across logistics and financial services, serving clients such as Banco ABC, Flash, XP Inc., and TOTVS, with a focus on delivering robust and efficient interfaces. Contributions include developing applications for companies like Gol Airlines, one of Brazil's largest airlines, and Teleperformance, a global leader in customer service solutions with over 500,000 employees worldwide. Emphasizes performance and usability in his work, alongside seamless integration with ERP systems, driving impactful technological solutions."
+    },
+    "experiences": {
+      "title": "Experiences",
+      "items": {
+        "base39": {
+          "year": "2024 - Moment",
+          "title": "Founder Team & Staff Engineer",
+          "company": "Base39",
+          "description": "Leading front-end development, optimizing web performance, and mentoring developers. Collaborating with product and design teams to build scalable internal platforms and financial solutions."
+        },
+        "paketa": {
+          "year": "2020 - 2024",
+          "title": "Software Engineer",
+          "company": "Paketá",
+          "description": "Developed and maintained internal platforms focused on payroll-deductible credit solutions. Worked on user management systems, corporate portals, and dashboards with real-time metrics."
+        },
+        "essencia": {
+          "year": "2019 - 2020",
+          "title": "Frontend Developer",
+          "company": "Essência Digital",
+          "description": "Developed scalable applications using React and Wordpress. Contributed to internal systems, e-commerce platforms, and custom web solutions for clients, including an internal support system for a major airline."
+        },
+        "optera": {
+          "year": "2018 - 2019",
+          "title": "Junior Software Engineer",
+          "company": "Optera",
+          "description": "Built MVPs and participated in agile sprints. Worked on real estate platforms, an ERP for small and medium businesses, and a broadband plan comparison tool."
+        }
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© Matheus Chignolli"
+  }
+}

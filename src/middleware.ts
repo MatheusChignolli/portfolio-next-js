@@ -1,7 +1,7 @@
 let locales = ["pt", ""];
 
 export function middleware(request: any) {
-  const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'];
+  const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.ico'];
   
   
   const { pathname } = request.nextUrl;

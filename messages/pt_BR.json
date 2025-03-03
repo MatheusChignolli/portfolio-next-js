@@ -1,0 +1,85 @@
+{
+  "header": {
+    "title": "Matheus Chignolli",
+    "socialLinks": {
+      "linkedIn": {
+        "href": "https://www.linkedin.com/in/matheus-chignolli-a0115b155/",
+        "label": "LinkedIn"
+      },
+      "github": {
+        "href": "https://github.com/MatheusChignolli",
+        "label": "GitHub"
+      },
+      "email": {
+        "href": "mailto:matheuschignolli@gmail.com",
+        "label": "E-mail"
+      }
+    },
+    "locales": {
+      "portuguese": {
+        "label": "🇧🇷 Português"
+      },
+      "english": {
+        "label": "🇺🇸 Inglês"
+      }
+    }
+  },
+  "main": {
+    "name": "Matheus Chignolli",
+    "role": "Engenheiro de Software",
+    "links": {
+      "projects": {
+        "href": "https://github.com/MatheusChignolli/projects",
+        "label": "Projetos"
+      },
+      "certifications": {
+        "href": "https://www.linkedin.com/in/matheus-chignolli-a0115b155/details/certifications/",
+        "label": "Certificações"
+      },
+      "articles": {
+        "href": "https://medium.com/@matheuschignolli",
+        "label": "Artigos"
+      },
+      "posts": {
+        "href": "https://www.linkedin.com/in/matheus-chignolli-a0115b155/recent-activity/all/",
+        "label": "Publicações"
+      }
+    },
+    "about": {
+      "title": "Sobre",
+      "content": "Mais de 6 anos de experiência em desenvolvimento de software e formado em TI pela Fatec. Impactou projetos nos setores de logística e serviços financeiros, atendendo clientes como Banco ABC, Flash, XP Inc. e TOTVS, com foco na entrega de interfaces robustas e eficientes. Suas contribuições incluem o desenvolvimento de aplicações para empresas como a Gol Linhas Aéreas, uma das maiores companhias aéreas do Brasil, e a Teleperformance, líder global em soluções de atendimento ao cliente, com mais de 500.000 funcionários em todo o mundo. Priorizando performance e usabilidade, também atua na integração com sistemas ERP, impulsionando soluções tecnológicas impactantes."
+    },
+    "experiences": {
+      "title": "Experiências",
+      "items": {
+        "base39": {
+          "year": "2024 - Atual",
+          "title": "Founder Team & Staff Engineer",
+          "company": "Base39",
+          "description": "Liderando o desenvolvimento front-end, otimizando o desempenho web e criando fluxo interativos focados no usuário. Colaborando com equipes de produto e design para construir plataformas internas escaláveis e soluções financeiras."
+        },
+        "paketa": {
+          "year": "2020 - 2024",
+          "title": "Engenheiro de Software",
+          "company": "Paketá",
+          "description": "Desenvolveu e manteve plataformas internas focadas em soluções de crédito consignado. Trabalhou em sistemas de gerenciamento de usuários, portais corporativos e dashboards com métricas em tempo real."
+        },
+        "essencia": {
+          "year": "2019 - 2020",
+          "title": "Desenvolvedor Frontend",
+          "company": "Essência Digital",
+          "description": "Desenvolveu aplicações escaláveis usando React e WordPress. Contribuiu para sistemas internos, plataformas de e-commerce e soluções web personalizadas para clientes, incluindo um sistema de suporte interno para uma grande companhia aérea."
+        },
+        "optera": {
+          "year": "2018 - 2019",
+          "title": "Engenheiro de Software Júnior",
+          "company": "Optera",
+          "description": "Construiu MVPs e participou de sprints ágeis. Trabalhou em plataformas imobiliárias, um ERP para pequenas e médias empresas e uma ferramenta de comparação de planos de internet banda larga."
+        }
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© Matheus Chignolli"
+  }
+}

@@ -1,99 +1,133 @@
-import { getDictionary } from "../dictionaries/dictionaries";
-import ThemeButton from "./theme-button";
-import { Github, Mail, Linkedin, Languages, MousePointerClick } from "lucide-react";
+import Image from 'next/image'
+import { Fragment } from 'react'
+import Header from './header'
+import Footer from './footer'
+import { getTranslations } from 'next-intl/server'
 
 export default async function Home() {
-  const currentLang = "en";
-  const dictionary = await getDictionary(currentLang);
+  const t = await getTranslations('main')
 
-  const nextLang = {
-    en: "pt",
-    pt: "en",
-    es: "en",
-  };
+  const links = ['projects', 'certifications', 'articles', 'posts'].map(item => ({
+    href: t(`links.${item}.href`),
+    label: t(`links.${item}.label`)
+  }))
+
+  const experiences = ['base39', 'paketa', 'essencia', 'optera'].map(company => ({
+    year: t(`experiences.items.${company}.year`),
+    title: t(`experiences.items.${company}.title`),
+    company: t(`experiences.items.${company}.company`),
+    description: t(`experiences.items.${company}.description`)
+  }))
 
   return (
     <>
-      <ThemeButton/>
-      <div className="grid grid-cols-6 gap-2 p-4 max-w-[1920px] mx-auto min-h-full">
-        <div className="bg-card shadow-lg rounded-lg p-8 col-span-6 sm:col-span-4 xl:col-span-1 flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl font-bold">{dictionary.name}</h1>
-          <h2 className="text-2xl text-text-secondary">{dictionary.role}</h2>
-          <span className="text-text-tertiary mt-2">({dictionary.language})</span>
+      <Header />
+      <main className="flex flex-col gap-20">
+        <div className="flex flex-col justify-center items-center p-5">
+          <div className="relative">
+            <Image
+              src="/profile.jpeg"
+              width={230}
+              height={230}
+              alt="Profile photo"
+              className="rounded-full border-4 border-text-primary w-[180px] h-[180px] sm:w-[230px] sm:h-[230px]"
+            />
+            <Image
+              src="/cartoon.png"
+              width={75}
+              height={75}
+              alt="Profile photo"
+              className="rounded-full border-2 border-text-primary bg-card absolute bottom-0 right-0 w-[50px] h-[50px] sm:w-[75px] sm:h-[75px]"
+            />
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-4 text-center">{t('name')}</h1>
+          <h2 className="text-xl sm:text-2xl text-text-secondary text-center">
+            {t('role')}
+          </h2>
+          <div className="flex flex-wrap gap-2 sm:gap-5 max-w-screen-lg mx-auto justify-center items-center mt-10">
+            {links.map(({ href, label }, index) => (
+              <Fragment key={href}>
+                {index > 0 && <div className="h-2 w-2 rounded-full bg-text-tertiary" />}
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs sm:text-lg font-semibold underline"
+                  aria-label="Projects"
+                >
+                  {label}
+                </a>
+              </Fragment>
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-4 sm:grid-cols-2 col-span-6 sm:col-span-2 xl:col-span-1 gap-2">
-          {[ 
-            { href: "https://www.linkedin.com/in/matheus-chignolli-a0115b155/", icon: Linkedin, label: "LinkedIn", blank: true },
-            { href: `/${nextLang[currentLang]}`, icon: Languages, label: "Change Language", blank: false },
-            { href: "https://github.com/MatheusChignolli", icon: Github, label: "GitHub", blank: true },
-            { href: "mailto:matheuschignolli@gmail.com", icon: Mail, label: "E-mail", blank: true }
-          ].map(({ href, icon: Icon, label, blank }, index) => (
-            <a
-              key={index}
-              href={href}
-              target={blank ? "_blank" : "_self"}
-              rel="noopener noreferrer"
-              aria-label={label}
-              className="bg-card shadow-md hover:shadow-xl transition-shadow p-4 rounded-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <Icon size={50} />
-            </a>
-          ))}
-        </div>
-        <a
-          href="https://www.linkedin.com/in/matheus-chignolli-a0115b155/details/certifications/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="col-span-6 sm:col-span-3 xl:col-span-1 bg-card shadow-lg rounded-lg flex flex-col items-center justify-center p-6 hover:shadow-xl transition-shadow"
-          aria-label="Certifications"
-        >
-          <h3 className="text-2xl font-semibold">{dictionary.certifications}</h3>
-          <MousePointerClick size={36} />
-        </a>
-        <a
-          href="https://medium.com/@matheuschignolli"
-          target="_blank"
-          className="col-span-3 sm:col-span-3 xl:col-span-1 bg-card shadow-lg rounded-lg flex flex-col items-center justify-center p-6 hover:shadow-xl transition-shadow"
-        >
-          <h3 className="text-2xl font-semibold">{dictionary.articles}</h3>
-          <MousePointerClick size={36} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/matheus-chignolli-a0115b155/recent-activity/all/"
-          target="_blank"
-          className="col-span-3 sm:col-span-3 xl:col-span-1 bg-card shadow-lg rounded-lg flex flex-col items-center justify-center p-6 hover:shadow-xl transition-shadow"
-        >
-          <h3 className="text-2xl font-semibold">{dictionary.posts}</h3>
-          <MousePointerClick size={36} />
-        </a>
-        <a
-          href="https://github.com/MatheusChignolli/projects"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="col-span-6 sm:col-span-3 xl:col-span-1 bg-card shadow-lg rounded-lg flex flex-col items-center justify-center p-6 hover:shadow-xl transition-shadow"
-          aria-label="Projects"
-        >
-          <h3 className="text-2xl font-semibold">{dictionary.projects}</h3>
-          <MousePointerClick size={36} />
-        </a>
-        <div className="col-span-6 bg-card shadow-lg rounded-lg p-6">
-          <h3 className="text-2xl font-semibold">{dictionary.about}</h3>
-          <p className="text-lg text-text-secondary mt-2 text-justify">{dictionary.aboutParagraph}</p>
-        </div>
-        <div className="col-span-6 bg-card shadow-lg rounded-lg p-6">
-          <h3 className="text-2xl font-semibold">{dictionary.technologies}</h3>
-          <div className="grid grid-cols-2 gap-4 mt-4">
+        <article className="max-w-screen-lg flex flex-col gap-3 sm:gap-6 items-center justify-center mx-auto px-5">
+          <h3 className="text-2xl sm:text-4xl font-semibold text-center">
+            {t('about.title')}
+          </h3>
+          <p className="text-md sm:text-lg text-text-secondary text-justify">
+            {t('about.content')}
+          </p>
+        </article>
+        <article className="max-w-screen-lg flex flex-col gap-3 sm:gap-6 items-center justify-center mx-auto w-full px-5">
+          <h3 className="text-2xl sm:text-4xl font-semibold text-center">
+            {t('experiences.title')}
+          </h3>
+          <div className="relative border-gray-300 dark:border-gray-700 w-full grid grid-cols-2 gap-6">
+            {experiences.map((experience, index) => (
+              <div
+                key={index}
+                className="flex flex-col relative col-span-2 sm:col-span-1 bg-card rounded-md p-4"
+              >
+                <h4 className="text-md sm:text-xl font-semibold">{experience.title}</h4>
+                <h5 className="text-md sm:text-lg font-normal">{experience.company}</h5>
+                <span className="text-sm sm:text-md text-gray-500 dark:text-gray-400 mt-2">
+                  {experience.year}
+                </span>
+                <p className="text-sm sm:text-md text-gray-700 dark:text-gray-300 mt-1">
+                  {experience.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </article>
+      </main>
+      <Footer />
+      {/* <div className="grid grid-cols-6 gap-4 p-4 max-w-[1920px] mx-auto min-h-full">
+        <div className="grid grid-cols-3 col-span-4 sm:col-span-3 xl:col-span-2 xl:col-start-5 xl:col-end-7 gap-2"></div>
+        <div className="col-span-6 h-10" />
+        <div className="col-span-4 col-start-2 p-6"></div>
+        <div className="col-span-4 col-start-2 p-6">
+          <h3 className="text-3xl font-semibold text-center">{dictionary.experiences}</h3>
+          <div className="grid grid-cols-2 gap-4 mt-6">
             {[
-              "JavaScript", "TypeScript", "Node.js", "React.js", "Svelte", "Flutter", "Ruby on Rails", "Unit Tests",
-              "GraphQL", "REST", "AWS", "MongoDB", "PostgreSQL", "MySQL", "GitHub", "CI/CD"
+              'JavaScript',
+              'TypeScript',
+              'Node.js',
+              'React.js',
+              'Svelte',
+              'Flutter',
+              'Ruby on Rails',
+              'Unit Tests',
+              'GraphQL',
+              'REST',
+              'AWS',
+              'MongoDB',
+              'PostgreSQL',
+              'MySQL',
+              'GitHub',
+              'CI/CD'
             ].map((tech, index) => (
-              <span key={index} className="bg-badge px-3 py-1 rounded-lg text-sm font-medium">
+              <span
+                key={index}
+                className="bg-badge px-3 py-1 rounded-lg text-sm font-medium"
+              >
                 {tech}
               </span>
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
-  );
+  )
 }
