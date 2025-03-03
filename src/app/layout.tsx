@@ -64,10 +64,6 @@ export const metadata = {
   metadataBase: new URL(url)
 }
 
-export async function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'pt' }, { lang: 'es' }]
-}
-
 export default async function RootLayout({
   children
 }: Readonly<{
