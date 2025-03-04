@@ -10,7 +10,7 @@ interface Props {
   currentLocale: Locale
 }
 
-export default function ({ currentLocale }: Props) {
+export default function Translate({ currentLocale }: Props) {
   const t = useTranslations('header')
   const [isPending, startTransition] = useTransition()
   const [open, setOpen] = useState(false)

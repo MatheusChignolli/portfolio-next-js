@@ -3,7 +3,7 @@
 import { Share } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
-export default function () {
+export default function ShareButton() {
   const t = useTranslations('header')
 
   const toggleShare = () => {

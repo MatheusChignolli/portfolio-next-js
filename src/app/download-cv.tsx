@@ -4,7 +4,7 @@ import { Download } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 
-export default function () {
+export default function DownloadCV() {
   const t = useTranslations('main')
   const [isPending, startTransition] = useTransition()
 
