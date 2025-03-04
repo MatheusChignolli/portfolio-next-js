@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root, html.light {
+:root,
+html.light {
   --background: #f4f4f4; /* Cinza muito claro para o fundo */
   --text-primary: #1a1a1a; /* Preto suave para o texto principal */
   --text-secondary: #2b2b2b; /* Preto suave com mais contraste para o texto secundário */
@@ -20,12 +21,10 @@ html.dark {
   --badge: #4a4a4a; /* Badge com tom próximo ao do card, sem perder contraste */
 }
 
-
-
 body {
   background: var(--background);
   color: var(--text-primary);
-  height: 100vh;
+  height: 100%;
 }
 
 @layer utilities {

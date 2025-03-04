@@ -6,6 +6,7 @@
   "display": "standalone",
   "theme_color": "#f4f4f4",
   "background_color": "#f4f4f4",
+  "author": "Matheus Chignolli",
   "icons": [
     {
       "src": "/favicon.ico",
