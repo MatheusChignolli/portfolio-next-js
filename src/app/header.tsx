@@ -5,7 +5,7 @@ import Translate from './translate'
 import { getUserLocale } from '@/i18n/services'
 import Share from './share'
 
-export default async function () {
+export default async function Header() {
   const t = await getTranslations('header')
   const currentLocale = await getUserLocale()
 
