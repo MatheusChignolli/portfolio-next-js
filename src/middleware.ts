@@ -1,21 +1,27 @@
-let locales = ["pt", ""];
+let locales = ['pt', '']
 
 export function middleware(request: any) {
-  const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.ico'];
-  
-  
-  const { pathname } = request.nextUrl;
-  const isImageRequest = imageExtensions.some((ext) => pathname.endsWith(ext));
-  const pathnameHasLocale = locales.some((locale) =>
-    pathname.endsWith(`/${locale}`)
-  );
+  const imageExtensions = [
+    '.jpg',
+    '.jpeg',
+    '.png',
+    '.gif',
+    '.webp',
+    '.svg',
+    '.ico',
+    '.pdf'
+  ]
 
-  if (pathnameHasLocale || isImageRequest) return;
+  const { pathname } = request.nextUrl
+  const isImageRequest = imageExtensions.some(ext => pathname.endsWith(ext))
+  const pathnameHasLocale = locales.some(locale => pathname.endsWith(`/${locale}`))
 
-  request.nextUrl.pathname = "";
-  return Response.redirect(request.nextUrl);
+  if (pathnameHasLocale || isImageRequest) return
+
+  request.nextUrl.pathname = ''
+  return Response.redirect(request.nextUrl)
 }
 
 export const config = {
-  matcher: ["/((?!_next).*)"],
-};
+  matcher: ['/((?!_next).*)']
+}
