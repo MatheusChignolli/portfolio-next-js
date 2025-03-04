@@ -114,7 +114,9 @@ export default async function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider timeZone="America/Sao_Paulo" messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
       <GoogleAnalytics gaId="G-R9C2BFLVRB" />
     </html>

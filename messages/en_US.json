@@ -1,6 +1,10 @@
 {
   "header": {
-    "title": "Matheus Chignolli",
+    "share": {
+      "url": "https://chignolli.com",
+      "title": "Matheus Chignolli - Software Engineer",
+      "text": "Check out my portfolio and software development projects!\n\nEmail: matheuschignolli@gmail.com\nGitHub: https://github.com/MatheusChignolli\nLinkedIn: https://www.linkedin.com/in/matheus-chignolli-a0115b155/"
+    },
     "socialLinks": {
       "linkedIn": {
         "href": "https://www.linkedin.com/in/matheus-chignolli-a0115b155/",
@@ -27,6 +31,7 @@
   "main": {
     "name": "Matheus Chignolli",
     "role": "Software Engineer",
+    "downloadCv": "Download CV",
     "links": {
       "projects": {
         "href": "https://github.com/MatheusChignolli/projects",

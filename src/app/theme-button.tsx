@@ -27,9 +27,11 @@ export default function ThemeButton() {
       setTimeout(() => {
         document.documentElement.classList.toggle('dark', newTheme === 'dark')
         localStorage.setItem('theme', newTheme)
-      }, 1200)
+      }, 800)
 
-      setTimeout(() => wave.remove(), 1500)
+      setTimeout(() => {
+        wave.remove()
+      }, 1000)
     })
   }
 

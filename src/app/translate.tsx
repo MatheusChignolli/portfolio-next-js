@@ -49,7 +49,7 @@ export default function ({ currentLocale }: Props) {
     <div ref={ref} className="relative">
       <button
         disabled={isPending}
-        className="w-10 sm:w-12 h-10 sm:h-12 p-2 rounded-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="mr-1 w-10 sm:w-12 h-10 sm:h-12 p-2 rounded-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500"
         onClick={() => {
           setOpen(prevState => !prevState)
         }}

@@ -27,7 +27,7 @@ const config: Config = {
         }
       },
       animation: {
-        sonar: 'sonar 1.5s ease-in-out'
+        sonar: 'sonar 1s ease-in-out'
       },
       colors: {
         background: 'var(--background)',

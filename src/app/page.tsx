@@ -3,6 +3,8 @@ import { Fragment } from 'react'
 import Header from './header'
 import Footer from './footer'
 import { getTranslations } from 'next-intl/server'
+import { Download } from 'lucide-react'
+import DownloadCv from './download-cv'
 
 export default async function Home() {
   const t = await getTranslations('main')
@@ -23,7 +25,7 @@ export default async function Home() {
     <>
       <Header />
       <main className="flex flex-col gap-20">
-        <div className="flex flex-col justify-center items-center p-5">
+        <section className="flex flex-col justify-center items-center p-5 mt-20">
           <div className="relative">
             <Image
               src="/profile.jpeg"
@@ -34,11 +36,12 @@ export default async function Home() {
             />
             <Image
               src="/cartoon.png"
-              width={75}
-              height={75}
+              width={76}
+              height={76}
               alt="Profile photo"
-              className="rounded-full border-2 border-text-primary bg-card absolute bottom-0 right-0 w-[50px] h-[50px] sm:w-[75px] sm:h-[75px]"
+              className="rounded-full border-2 border-text-primary bg-card absolute bottom-0 right-9 sm:right-0 w-[50px] h-[50px] sm:w-[76px] sm:h-[76px]"
             />
+            <DownloadCv />
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold mt-4 text-center">{t('name')}</h1>
           <h2 className="text-xl sm:text-2xl text-text-secondary text-center">
@@ -60,16 +63,16 @@ export default async function Home() {
               </Fragment>
             ))}
           </div>
-        </div>
-        <article className="max-w-screen-lg flex flex-col gap-3 sm:gap-6 items-center justify-center mx-auto px-5">
+        </section>
+        <section className="max-w-screen-lg flex flex-col gap-3 sm:gap-6 items-center justify-center mx-auto px-5">
           <h3 className="text-2xl sm:text-4xl font-semibold text-center">
             {t('about.title')}
           </h3>
           <p className="text-md sm:text-lg text-text-secondary text-justify">
             {t('about.content')}
           </p>
-        </article>
-        <article className="max-w-screen-lg flex flex-col gap-3 sm:gap-6 items-center justify-center mx-auto w-full px-5">
+        </section>
+        <section className="max-w-screen-lg flex flex-col gap-3 sm:gap-6 items-center justify-center mx-auto w-full px-5">
           <h3 className="text-2xl sm:text-4xl font-semibold text-center">
             {t('experiences.title')}
           </h3>
@@ -90,7 +93,7 @@ export default async function Home() {
               </div>
             ))}
           </div>
-        </article>
+        </section>
       </main>
       <Footer />
       {/* <div className="grid grid-cols-6 gap-4 p-4 max-w-[1920px] mx-auto min-h-full">

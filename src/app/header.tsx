@@ -3,6 +3,7 @@ import ThemeButton from './theme-button'
 import { getTranslations } from 'next-intl/server'
 import Translate from './translate'
 import { getUserLocale } from '@/i18n/services'
+import Share from './share'
 
 export default async function () {
   const t = await getTranslations('header')
@@ -30,8 +31,8 @@ export default async function () {
   ]
 
   return (
-    <header className="flex p-4 justify-between items-center gap-4 max-w-[1920px] sticky top-0 bg-background border-b z-10 border-card [&>*]:sm:w-[230px]">
-      <h3 className="text-2xl font-bold hidden sm:block">{t('title')}</h3>
+    <header className="flex p-4 justify-between items-center gap-4 max-w-[1920px] sticky -top-[1px] bg-background border border-t-0 rounded-b-2xl z-10 border-card mx-auto shadow-2xl">
+      {/* <h3 className="text-2xl font-bold hidden sm:block">{t('title')}</h3> */}
       <div className="flex justify-center gap-2">
         {contactLinks.map(({ href, icon: Icon, label, className }, index) => (
           <a
@@ -46,7 +47,8 @@ export default async function () {
           </a>
         ))}
       </div>
-      <div className="flex gap-2 justify-end">
+      <div className="flex">
+        <Share />
         <Translate currentLocale={currentLocale} />
         <ThemeButton />
       </div>
