@@ -3,7 +3,6 @@ import { Fragment } from 'react'
 import Header from './header'
 import Footer from './footer'
 import { getTranslations } from 'next-intl/server'
-import { Download } from 'lucide-react'
 import DownloadCv from './download-cv'
 
 export default async function Home() {
