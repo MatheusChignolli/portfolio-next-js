@@ -71,7 +71,7 @@ export default function HomeContent() {
         <h3 className="text-2xl sm:text-4xl font-semibold text-center">
           {t('about.title')}
         </h3>
-        <p className="text-md sm:text-lg text-text-secondary text-justify">
+        <p className="text-md sm:text-lg text-text-secondary text-justify min-h-[12rem] sm:min-h-[10rem]">
           {t('about.content')}
         </p>
       </section>
@@ -83,7 +83,7 @@ export default function HomeContent() {
           {experiences.map((experience, index) => (
             <div
               key={index}
-              className={`flex flex-col relative ${index === 0 ? 'col-span-2' : 'sm:col-span-1'} bg-card rounded-md p-4`}
+              className={`flex flex-col relative ${index === 0 ? 'col-span-2' : 'sm:col-span-1'} bg-card rounded-md p-4 min-h-[9.5rem]`}
             >
               <h4 className="text-md sm:text-xl font-semibold">{experience.title}</h4>
               <h5 className="text-md sm:text-lg font-normal">{experience.company}</h5>
