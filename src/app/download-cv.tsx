@@ -21,6 +21,7 @@ export default function DownloadCV() {
 
   return (
     <button
+      type="button"
       disabled={isPending}
       onClick={handleDownload}
       className="absolute flex gap-0.5 min-w-[140px] sm:min-w-[160px] sm:gap-2 items-center px-1 left-[138px] h-[30px] bottom-[10px] sm:px-2 sm:py-1.5 sm:left-[223px] sm:h-[41px] sm:bottom-[17px] border-2 border-l-0 border-text-primary bg-card rounded-r-lg"

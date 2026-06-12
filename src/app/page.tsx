@@ -31,13 +31,15 @@ export default async function Home() {
               width={230}
               height={230}
               alt="Profile photo"
+              priority
+              fetchPriority="high"
               className="rounded-full border-4 border-text-primary w-[180px] h-[180px] sm:w-[230px] sm:h-[230px]"
             />
             <Image
               src="/cartoon.png"
               width={76}
               height={76}
-              alt="Profile photo"
+              alt="Cartoon avatar"
               className="rounded-full border-2 border-text-primary bg-card absolute bottom-0 right-9 sm:right-0 w-[50px] h-[50px] sm:w-[76px] sm:h-[76px]"
             />
             <DownloadCv />
@@ -55,7 +57,6 @@ export default async function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs sm:text-lg font-semibold underline"
-                  aria-label="Projects"
                 >
                   {label}
                 </a>

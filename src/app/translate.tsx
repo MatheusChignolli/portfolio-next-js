@@ -48,13 +48,17 @@ export default function Translate({ currentLocale }: Props) {
   return (
     <div ref={ref} className="relative">
       <button
+        type="button"
         disabled={isPending}
+        aria-label={t('languageButton')}
+        aria-expanded={open}
+        aria-haspopup="listbox"
         className="mr-1 w-10 sm:w-12 h-10 sm:h-12 p-2 rounded-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500"
         onClick={() => {
           setOpen(prevState => !prevState)
         }}
       >
-        <Languages size={36} />
+        <Languages size={36} aria-hidden="true" />
       </button>
       <div
         style={{
@@ -65,6 +69,9 @@ export default function Translate({ currentLocale }: Props) {
         {locales.map(({ label, value }) => (
           <button
             key={value}
+            type="button"
+            role="option"
+            aria-selected={currentLocale === value}
             className={`text-left p-2 w-36 rounded ${currentLocale === value ? 'bg-card' : ''}`}
             onClick={() => handleLocaleChange(value)}
           >

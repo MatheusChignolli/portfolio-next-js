@@ -1,9 +1,11 @@
 'use client'
 
 import { PaintBucket } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 
 export default function ThemeButton() {
+  const t = useTranslations('header')
   const [isPending, startTransition] = useTransition()
 
   const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -39,11 +41,13 @@ export default function ThemeButton() {
     <>
       <div id="theme-button" />
       <button
+        type="button"
         disabled={isPending}
+        aria-label={t('themeButton')}
         className="z-10 w-10 sm:w-12 h-10 sm:h-12 bg-[#222222] dark:bg-[#f4f4f4] text-[#f4f4f4] dark:text-[#1a1a1a] shadow-md hover:shadow-xl p-2 rounded-lg flex items-center justify-center transition-all duration-500 ease-in-out"
         onClick={toggleTheme}
       >
-        <PaintBucket size={36} />
+        <PaintBucket size={36} aria-hidden="true" />
       </button>
     </>
   )

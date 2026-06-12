@@ -1,5 +1,8 @@
 {
   "header": {
+    "shareButton": "Share portfolio",
+    "languageButton": "Select language",
+    "themeButton": "Toggle color theme",
     "share": {
       "url": "https://chignolli.com",
       "title": "Matheus Chignolli - Software Engineer",

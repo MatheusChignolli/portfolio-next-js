@@ -22,10 +22,12 @@ export default function ShareButton() {
 
   return (
     <button
+      type="button"
+      aria-label={t('shareButton')}
       className="w-10 sm:w-12 h-10 sm:h-12 p-2 rounded-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500"
       onClick={toggleShare}
     >
-      <Share size={36} />
+      <Share size={36} aria-hidden="true" />
     </button>
   )
 }

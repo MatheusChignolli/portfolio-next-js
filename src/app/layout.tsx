@@ -3,18 +3,20 @@ import './globals.css'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { getLocale, getMessages } from 'next-intl/server'
 import { NextIntlClientProvider } from 'next-intl'
+import type { Metadata } from 'next'
+import { localeToHtmlLang, type Locale } from '@/i18n/config'
 
-const inter = Montserrat({ subsets: ['latin'] })
+const montserrat = Montserrat({ subsets: ['latin'], display: 'swap' })
 
 const url = 'https://chignolli.com'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Matheus Chignolli - Software Engineer Portfolio',
   description:
     "Matheus Chignolli's portfolio highlights innovative software engineering projects, showcasing expertise in building scalable, high-quality solutions.",
   applicationName: 'Matheus Chignolli Portfolio',
   creator: 'Matheus Chignolli',
-  author: 'Matheus Chignolli',
+  authors: [{ name: 'Matheus Chignolli', url }],
   keywords: [
     'web development',
     'react',
@@ -24,16 +26,22 @@ export const metadata = {
     'software engineering',
     'chignolli'
   ],
+  alternates: {
+    canonical: url,
+    languages: {
+      en: url,
+      'pt-BR': url
+    }
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     alternateLocale: 'pt_BR',
-    url: url,
+    url,
     siteName: 'Matheus Chignolli Portfolio',
     countryName: 'Brazil',
     description:
       "Matheus Chignolli's portfolio highlights innovative software engineering projects, showcasing expertise in building scalable, high-quality solutions.",
-    determiner: 'the',
     title: 'Matheus Chignolli - Software Engineer Portfolio',
     images: [
       {
@@ -48,20 +56,53 @@ export const metadata = {
         height: 1280,
         alt: 'Capa Matheus Chignolli'
       }
-    ],
-    email: 'matheuschignolli@gmail.com'
+    ]
   },
   twitter: {
     card: 'summary_large_image',
     site: '@MatheusChignolli',
     creator: '@MatheusChignolli',
-    image: `${url}/cover-h.jpg`
+    title: 'Matheus Chignolli - Software Engineer Portfolio',
+    description:
+      "Matheus Chignolli's portfolio highlights innovative software engineering projects, showcasing expertise in building scalable, high-quality solutions.",
+    images: [`${url}/cover-h.jpg`]
   },
   robots: {
     index: true,
     follow: true
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' }
+    ],
+    apple: '/apple-touch-icon.png'
+  },
+  manifest: '/site.webmanifest',
   metadataBase: new URL(url)
+}
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Matheus Chignolli',
+  url,
+  jobTitle: 'Software Engineer',
+  image: `${url}/profile.jpeg`,
+  sameAs: [
+    'https://github.com/MatheusChignolli',
+    'https://www.linkedin.com/in/matheus-chignolli-a0115b155/',
+    'https://medium.com/@matheuschignolli'
+  ],
+  email: 'matheuschignolli@gmail.com',
+  knowsAbout: [
+    'Web Development',
+    'React',
+    'Node.js',
+    'GraphQL',
+    'Software Engineering'
+  ]
 }
 
 export default async function RootLayout({
@@ -71,35 +112,11 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale()
   const messages = await getMessages()
+  const htmlLang = localeToHtmlLang[locale as Locale] ?? 'en'
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={htmlLang} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta property="og:description" content={metadata.openGraph.description} />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta
-          name="image"
-          property="og:image"
-          content={metadata.openGraph.images[0].url}
-        />
-        <meta
-          property="og:image:width"
-          content={metadata.openGraph.images[0].width.toString()}
-        />
-        <meta
-          property="og:image:height"
-          content={metadata.openGraph.images[0].height.toString()}
-        />
-        <meta property="og:image:alt" content={metadata.openGraph.images[0].alt} />
-        <meta property="og:locale" content={metadata.openGraph.locale} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
-        <meta name="twitter:card" content={metadata.twitter.card} />
-        <meta name="twitter:site" content={metadata.twitter.site} />
-        <meta name="twitter:creator" content={metadata.twitter.creator} />
-        <meta name="twitter:image" content={metadata.twitter.image} />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -112,13 +129,17 @@ export default async function RootLayout({
             `
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <NextIntlClientProvider timeZone="America/Sao_Paulo" messages={messages}>
           {children}
         </NextIntlClientProvider>
+        <GoogleAnalytics gaId="G-R9C2BFLVRB" />
       </body>
-      <GoogleAnalytics gaId="G-R9C2BFLVRB" />
     </html>
   )
 }

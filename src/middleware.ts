@@ -1,25 +1,26 @@
-let locales = ['pt', '']
+import { NextRequest, NextResponse } from 'next/server'
 
-export function middleware(request: any) {
-  const imageExtensions = [
-    '.jpg',
-    '.jpeg',
-    '.png',
-    '.gif',
-    '.webp',
-    '.svg',
-    '.ico',
-    '.pdf'
-  ]
+const locales = ['pt', '']
 
+const STATIC_PATHS = new Set(['/robots.txt', '/sitemap.xml', '/site.webmanifest'])
+
+function isStaticAsset(pathname: string) {
+  return STATIC_PATHS.has(pathname) || /\.[a-zA-Z0-9]+$/.test(pathname)
+}
+
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const isImageRequest = imageExtensions.some(ext => pathname.endsWith(ext))
+
+  if (pathname.startsWith('/_next') || isStaticAsset(pathname)) {
+    return
+  }
+
   const pathnameHasLocale = locales.some(locale => pathname.endsWith(`/${locale}`))
 
-  if (pathnameHasLocale || isImageRequest) return
+  if (pathnameHasLocale) return
 
   request.nextUrl.pathname = ''
-  return Response.redirect(request.nextUrl)
+  return NextResponse.redirect(request.nextUrl)
 }
 
 export const config = {
