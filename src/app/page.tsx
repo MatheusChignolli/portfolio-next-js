@@ -1,9 +1,13 @@
 import Image from 'next/image'
+import nextDynamic from 'next/dynamic'
 import { Fragment } from 'react'
 import Header from './header'
 import Footer from './footer'
 import { getTranslations } from 'next-intl/server'
-import DownloadCv from './download-cv'
+
+export const dynamic = 'force-static'
+
+const DownloadCv = nextDynamic(() => import('./download-cv'))
 
 export default async function Home() {
   const t = await getTranslations('main')
@@ -33,6 +37,7 @@ export default async function Home() {
               alt="Profile photo"
               priority
               fetchPriority="high"
+              sizes="(max-width: 640px) 180px, 230px"
               className="rounded-full border-4 border-text-primary w-[180px] h-[180px] sm:w-[230px] sm:h-[230px]"
             />
             <Image
@@ -40,6 +45,7 @@ export default async function Home() {
               width={76}
               height={76}
               alt="Cartoon avatar"
+              sizes="76px"
               className="rounded-full border-2 border-text-primary bg-card absolute bottom-0 right-9 sm:right-0 w-[50px] h-[50px] sm:w-[76px] sm:h-[76px]"
             />
             <DownloadCv />
@@ -96,41 +102,6 @@ export default async function Home() {
         </section>
       </main>
       <Footer />
-      {/* <div className="grid grid-cols-6 gap-4 p-4 max-w-[1920px] mx-auto min-h-full">
-        <div className="grid grid-cols-3 col-span-4 sm:col-span-3 xl:col-span-2 xl:col-start-5 xl:col-end-7 gap-2"></div>
-        <div className="col-span-6 h-10" />
-        <div className="col-span-4 col-start-2 p-6"></div>
-        <div className="col-span-4 col-start-2 p-6">
-          <h3 className="text-3xl font-semibold text-center">{dictionary.experiences}</h3>
-          <div className="grid grid-cols-2 gap-4 mt-6">
-            {[
-              'JavaScript',
-              'TypeScript',
-              'Node.js',
-              'React.js',
-              'Svelte',
-              'Flutter',
-              'Ruby on Rails',
-              'Unit Tests',
-              'GraphQL',
-              'REST',
-              'AWS',
-              'MongoDB',
-              'PostgreSQL',
-              'MySQL',
-              'GitHub',
-              'CI/CD'
-            ].map((tech, index) => (
-              <span
-                key={index}
-                className="bg-badge px-3 py-1 rounded-lg text-sm font-medium"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div> */}
     </>
   )
 }

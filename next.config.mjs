@@ -4,6 +4,9 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig = {
   compress: true,
   poweredByHeader: false,
+  experimental: {
+    optimizePackageImports: ['lucide-react']
+  },
   async headers() {
     const securityHeaders = [
       {

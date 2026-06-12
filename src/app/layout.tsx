@@ -1,12 +1,10 @@
-import { Montserrat } from 'next/font/google'
 import './globals.css'
-import { GoogleAnalytics } from '@next/third-parties/google'
-import { getLocale, getMessages } from 'next-intl/server'
-import { NextIntlClientProvider } from 'next-intl'
+import Script from 'next/script'
 import type { Metadata } from 'next'
-import { localeToHtmlLang, type Locale } from '@/i18n/config'
+import { localeToHtmlLang, defaultLocale } from '@/i18n/config'
+import LocaleProvider from '@/i18n/locale-provider'
 
-const montserrat = Montserrat({ subsets: ['latin'], display: 'swap' })
+export const dynamic = 'force-static'
 
 const url = 'https://chignolli.com'
 
@@ -105,28 +103,18 @@ const personJsonLd = {
   ]
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const locale = await getLocale()
-  const messages = await getMessages()
-  const htmlLang = localeToHtmlLang[locale as Locale] ?? 'en'
-
   return (
-    <html lang={htmlLang} suppressHydrationWarning>
+    <html lang={localeToHtmlLang[defaultLocale]} suppressHydrationWarning>
       <head>
+        <link rel="preload" href="/profile.jpeg" as="image" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const storedTheme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-                document.documentElement.classList.toggle('dark', theme === 'dark');
-              })();
-            `
+            __html: `(function(){var t=localStorage.getItem('theme'),d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',(t||(d?'dark':'light'))==='dark')})();`
           }}
         />
         <script
@@ -134,11 +122,15 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className={montserrat.className}>
-        <NextIntlClientProvider timeZone="America/Sao_Paulo" messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-        <GoogleAnalytics gaId="G-R9C2BFLVRB" />
+      <body>
+        <LocaleProvider>{children}</LocaleProvider>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-R9C2BFLVRB"
+          strategy="lazyOnload"
+        />
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-R9C2BFLVRB');`}
+        </Script>
       </body>
     </html>
   )

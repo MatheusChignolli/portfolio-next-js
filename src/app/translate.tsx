@@ -4,14 +4,11 @@ import { useEffect, useRef, useState, useTransition } from 'react'
 import { useTranslations } from 'next-intl'
 import { Languages } from 'lucide-react'
 import { Locale } from '@/i18n/config'
-import { setUserLocale } from '@/i18n/services'
+import { useLocaleContext } from '@/i18n/locale-provider'
 
-interface Props {
-  currentLocale: Locale
-}
-
-export default function Translate({ currentLocale }: Props) {
+export default function Translate() {
   const t = useTranslations('header')
+  const { locale, changeLocale } = useLocaleContext()
   const [isPending, startTransition] = useTransition()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -19,13 +16,13 @@ export default function Translate({ currentLocale }: Props) {
   const locales = [
     {
       label: t('locales.portuguese.label'),
-      value: 'pt_BR'
+      value: 'pt_BR' as const
     },
     {
       label: t('locales.english.label'),
-      value: 'en_US'
+      value: 'en_US' as const
     }
-  ] as const
+  ]
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -38,9 +35,9 @@ export default function Translate({ currentLocale }: Props) {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const handleLocaleChange = (locale: Locale) => {
+  const handleLocaleChange = (nextLocale: Locale) => {
     startTransition(() => {
-      setUserLocale(locale)
+      changeLocale(nextLocale)
       setOpen(false)
     })
   }
@@ -54,16 +51,12 @@ export default function Translate({ currentLocale }: Props) {
         aria-expanded={open}
         aria-haspopup="listbox"
         className="mr-1 w-10 sm:w-12 h-10 sm:h-12 p-2 rounded-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500"
-        onClick={() => {
-          setOpen(prevState => !prevState)
-        }}
+        onClick={() => setOpen(prevState => !prevState)}
       >
         <Languages size={36} aria-hidden="true" />
       </button>
       <div
-        style={{
-          maxHeight: open ? `104px` : '0px'
-        }}
+        style={{ maxHeight: open ? '104px' : '0px' }}
         className={`absolute right-0 z-50 flex flex-col gap-2 p-2 rounded-lg shadow-xl border border-card bg-background overflow-hidden transition-all duration-300 ease-in-out translate-y-full -bottom-2 ${open ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'}`}
       >
         {locales.map(({ label, value }) => (
@@ -71,8 +64,8 @@ export default function Translate({ currentLocale }: Props) {
             key={value}
             type="button"
             role="option"
-            aria-selected={currentLocale === value}
-            className={`text-left p-2 w-36 rounded ${currentLocale === value ? 'bg-card' : ''}`}
+            aria-selected={locale === value}
+            className={`text-left p-2 w-36 rounded ${locale === value ? 'bg-card' : ''}`}
             onClick={() => handleLocaleChange(value)}
           >
             {label}
