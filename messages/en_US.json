@@ -55,13 +55,19 @@
     },
     "about": {
       "title": "About",
-      "content": "Over 6 years of experience in software development and holds a degree in IT from Fatec. Impacted projects across logistics and financial services, serving clients such as Banco ABC, Flash, XP Inc., and TOTVS, with a focus on delivering robust and efficient interfaces. Contributions include developing applications for companies like Gol Airlines, one of Brazil's largest airlines, and Teleperformance, a global leader in customer service solutions with over 500,000 employees worldwide. Emphasizes performance and usability in his work, alongside seamless integration with ERP systems, driving impactful technological solutions."
+      "content": "Over 8 years of experience in software development and holds a degree in IT from Fatec. Impacted projects across logistics and financial services, serving clients such as Banco ABC, Flash, XP Inc., and TOTVS, with a focus on delivering robust and efficient interfaces. Contributions include developing applications for companies like Gol Airlines, one of Brazil's largest airlines, and Teleperformance, a global leader in customer service solutions with over 500,000 employees worldwide. Emphasizes performance and usability in his work, alongside seamless integration with ERP systems, driving impactful technological solutions."
     },
     "experiences": {
       "title": "Experiences",
       "items": {
+        "bayer": {
+          "year": "2025 - Present",
+          "title": "Senior Software Engineer",
+          "company": "Bayer",
+          "description": "Developed and maintained internal platforms focused on agronomy solutions. Enabling farmers to access agronomy solutions and improve their productivity, fields, prescriptions, and more."
+        },
         "base39": {
-          "year": "2024 - Moment",
+          "year": "2024 - 2025",
           "title": "Founder Team & Staff Engineer",
           "company": "Base39",
           "description": "Leading front-end development, optimizing web performance, and mentoring developers. Collaborating with product and design teams to build scalable internal platforms and financial solutions."

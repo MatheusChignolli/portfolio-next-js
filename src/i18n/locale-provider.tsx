@@ -5,15 +5,21 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useState,
   useTransition
 } from 'react'
 import { defaultLocale, localeToHtmlLang, type Locale } from './config'
 import enMessages from '../../messages/en_US.json'
+import ptMessages from '../../messages/pt_BR.json'
 import { setUserLocale } from './services'
 
 type Messages = typeof enMessages
+
+const messagesByLocale: Record<Locale, Messages> = {
+  en_US: enMessages,
+  pt_BR: ptMessages
+}
 
 interface LocaleContextValue {
   locale: Locale
@@ -29,15 +35,16 @@ export function useLocaleContext() {
   return useContext(LocaleContext)
 }
 
-function getCookieLocale(): Locale | null {
+function getCookieLocale(): Locale {
+  if (typeof document === 'undefined') return defaultLocale
   const match = document.cookie.match(/(?:^|;\s*)LOCALE=([^;]+)/)
   const value = match?.[1] as Locale | undefined
-  return value === 'en_US' || value === 'pt_BR' ? value : null
+  return value === 'en_US' || value === 'pt_BR' ? value : defaultLocale
 }
 
-async function loadMessages(locale: Locale): Promise<Messages> {
-  if (locale === defaultLocale) return enMessages
-  return (await import(`../../messages/${locale}.json`)).default
+function applyLocale(locale: Locale) {
+  document.documentElement.lang = localeToHtmlLang[locale]
+  document.documentElement.dataset.locale = locale
 }
 
 export default function LocaleProvider({ children }: { children: React.ReactNode }) {
@@ -45,25 +52,20 @@ export default function LocaleProvider({ children }: { children: React.ReactNode
   const [locale, setLocale] = useState<Locale>(defaultLocale)
   const [messages, setMessages] = useState<Messages>(enMessages)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const cookieLocale = getCookieLocale()
-    if (!cookieLocale || cookieLocale === defaultLocale) return
-
-    loadMessages(cookieLocale).then(nextMessages => {
-      setLocale(cookieLocale)
-      setMessages(nextMessages)
-      document.documentElement.lang = localeToHtmlLang[cookieLocale]
-    })
+    setLocale(cookieLocale)
+    setMessages(messagesByLocale[cookieLocale])
+    applyLocale(cookieLocale)
   }, [])
 
   const changeLocale = useCallback(
     (nextLocale: Locale) => {
       startTransition(async () => {
         await setUserLocale(nextLocale)
-        const nextMessages = await loadMessages(nextLocale)
         setLocale(nextLocale)
-        setMessages(nextMessages)
-        document.documentElement.lang = localeToHtmlLang[nextLocale]
+        setMessages(messagesByLocale[nextLocale])
+        applyLocale(nextLocale)
       })
     },
     [startTransition]

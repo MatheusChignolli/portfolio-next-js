@@ -114,7 +114,7 @@ export default function RootLayout({
         <link rel="preload" href="/profile.jpeg" as="image" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('theme'),d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',(t||(d?'dark':'light'))==='dark')})();`
+            __html: `(function(){var t=localStorage.getItem('theme'),d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',(t||(d?'dark':'light'))==='dark');var m=document.cookie.match(/(?:^|;\\s*)LOCALE=([^;]+)/);var l=m&&m[1]==='pt_BR'?'pt_BR':'en_US';document.documentElement.lang=l==='pt_BR'?'pt-BR':'en';document.documentElement.dataset.locale=l;})();`
           }}
         />
         <script

@@ -1,13 +1,15 @@
+'use client'
+
 import dynamic from 'next/dynamic'
-import { getTranslations } from 'next-intl/server'
+import { useTranslations } from 'next-intl'
 import { GitHubIcon, LinkedInIcon, MailIcon } from '@/components/icons'
 
 const Share = dynamic(() => import('./share'))
 const Translate = dynamic(() => import('./translate'))
 const ThemeButton = dynamic(() => import('./theme-button'))
 
-export default async function Header() {
-  const t = await getTranslations('header')
+export default function Header() {
+  const t = useTranslations('header')
 
   const contactLinks = [
     {

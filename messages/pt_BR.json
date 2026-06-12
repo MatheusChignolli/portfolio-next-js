@@ -55,13 +55,19 @@
     },
     "about": {
       "title": "Sobre",
-      "content": "Mais de 6 anos de experiência em desenvolvimento de software e formado em TI pela Fatec. Impactou projetos nos setores de logística e serviços financeiros, atendendo clientes como Banco ABC, Flash, XP Inc. e TOTVS, com foco na entrega de interfaces robustas e eficientes. Suas contribuições incluem o desenvolvimento de aplicações para empresas como a Gol Linhas Aéreas, uma das maiores companhias aéreas do Brasil, e a Teleperformance, líder global em soluções de atendimento ao cliente, com mais de 500.000 funcionários em todo o mundo. Priorizando performance e usabilidade, também atua na integração com sistemas ERP, impulsionando soluções tecnológicas impactantes."
+      "content": "Mais de 8 anos de experiência em desenvolvimento de software e formado em TI pela Fatec. Impactou projetos nos setores de logística e serviços financeiros, atendendo clientes como Banco ABC, Flash, XP Inc. e TOTVS, com foco na entrega de interfaces robustas e eficientes. Suas contribuições incluem o desenvolvimento de aplicações para empresas como a Gol Linhas Aéreas, uma das maiores companhias aéreas do Brasil, e a Teleperformance, líder global em soluções de atendimento ao cliente, com mais de 500.000 funcionários em todo o mundo. Priorizando performance e usabilidade, também atua na integração com sistemas ERP, impulsionando soluções tecnológicas impactantes."
     },
     "experiences": {
       "title": "Experiências",
       "items": {
+        "bayer": {
+          "year": "2025 - Atual",
+          "title": "Senior Software Engineer",
+          "company": "Bayer",
+          "description": "Desenvolvo e mantenho plataformas focadas em soluções de agronomia. Permitindo que agricultores acessem soluções que melhorem sua produtividade, fazendas, colheitas, e muito mais."
+        },
         "base39": {
-          "year": "2024 - Atual",
+          "year": "2024 - 2025",
           "title": "Founder Team & Staff Engineer",
           "company": "Base39",
           "description": "Liderando o desenvolvimento front-end, otimizando o desempenho web e criando fluxo interativos focados no usuário. Colaborando com equipes de produto e design para construir plataformas internas escaláveis e soluções financeiras."

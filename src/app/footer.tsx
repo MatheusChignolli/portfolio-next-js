@@ -1,7 +1,9 @@
-import { getTranslations } from 'next-intl/server'
+'use client'
 
-export default async function Footer() {
-  const t = await getTranslations('footer')
+import { useTranslations } from 'next-intl'
+
+export default function Footer() {
+  const t = useTranslations('footer')
   const year = new Date().getFullYear()
 
   return (
